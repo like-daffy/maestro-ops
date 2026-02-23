@@ -1,0 +1,244 @@
+appId: com.saucelabs.mydemo.app.ios
+---
+# Launch the application
+- launchApp
+
+# Swipe down to the bottom of the Products screen
+- swipe:
+      start: 50%, 80%
+      end: 50%, 20%
+
+# Swipe up to the top of the Products screen
+# Scroll Up (Swipe Down)
+- swipe:
+      start: 50%, 40%
+      end: 50%, 80%
+      duration: 1000
+
+- swipe:
+      start: 50%, 40%
+      end: 50%, 80%
+      duration: 1000
+
+- swipe:
+      start: 50%, 40%
+      end: 50%, 80%
+      duration: 1000
+
+# Verify and tap on the first Product Image
+- assertVisible:
+      text: "Product Image"
+      index: 0
+- tapOn:
+      text: "Product Image"
+      index: 0
+
+# Verify and tap the star rating element
+- tapOn:
+      text: StarSelected Icons
+      index: 2
+- tapOn: OK
+
+# Verify and tap Add to cart
+- assertVisible:
+      text: "Add to cart"
+- tapOn: "Add to cart"
+
+# Verify and tap the cart icon
+- assertVisible:
+      id: Cart-tab-item
+- tapOn:
+      id: Cart-tab-item
+
+# Verify and tap Remove Item in the cart view
+- assertVisible:
+      text: "Remove Item"
+- tapOn: "Remove Item"
+
+# Verify and tap Go Shopping
+- assertVisible:
+      text: "Go Shopping"
+- tapOn: "Go Shopping"
+
+# Re-verify and tap the first Product Image
+- assertVisible:
+      text: "Product Image"
+      index: 0
+- tapOn:
+      text: "Product Image"
+      index: 0
+
+# Re-verify and tap Add to cart
+- assertVisible:
+      text: "Add to cart"
+- tapOn: "Add to cart"
+
+# Final verify and tap the cart icon
+- assertVisible:
+      id: Cart-tab-item
+- tapOn:
+      id: Cart-tab-item
+- assertVisible:
+      text: "Proceed To Checkout"
+- tapOn: "Proceed To Checkout"
+
+# Login - Input username
+- tapOn:
+      below: "User Name"
+- inputText:
+      text: ${TEST_ID}
+
+# Login - Input password
+- tapOn:
+      below: "Password"
+- inputText:
+      text: ${TEST_PWD}
+
+# Instead hideKeyboard tap previous field
+- tapOn:
+      below: "User Name"
+
+# Tap login button
+- tapOn:
+      text: Login
+      index: -1
+
+# Dismiss autofill prompt if exists
+- runFlow:
+      when:
+          visible:
+              text: Not Now
+      commands:
+          - tapOn:
+                text: Not Now
+
+# Shipping Address - Input full name
+- tapOn:
+      below: Full Name*
+- inputText:
+      text: ${TEST_FULLNAME_SHIPPING}
+
+# Shipping Address - Input address line 1
+- tapOn:
+      below: Address Line 1*
+- inputText:
+      text: ${TEST_ADDRESS1}
+
+# Shipping Address - Input address line 2
+- tapOn:
+      below: Address Line 2
+- inputText:
+      text: ${TEST_ADDRESS2}
+
+# Instead hideKeyboard tap previous field
+- tapOn:
+      below: Address Line 1*
+
+# Swipe to bottom
+- swipe:
+      start: 50%, 60%
+      end: 50%, 20%
+
+# Shipping Address - Input city
+- tapOn:
+      below: City*
+- inputText:
+      text: ${TEST_CITY}
+
+# Shipping Address - Input state/region
+- tapOn: "State/Region"
+- tapOn:
+      below: State/Region
+      rightOf: City*
+- inputText:
+      text: ${TEST_STATE}
+
+# Instead hideKeyboard tap previous field
+- tapOn:
+      below: City*
+
+# Shipping Address - Input zip code
+- tapOn:
+      below: Zip Code*
+- inputText:
+      text: ${TEST_ZIP}
+
+# Instead hideKeyboard tap previous field
+- tapOn:
+      below: Address Line 2
+
+# Shipping Address - Input country
+- tapOn:
+      text: Country*
+- tapOn:
+      below: Country*
+      rightOf: Zip Code*
+- inputText:
+      text: ${TEST_COUNTRY}
+
+# Instead hideKeyboard tap previous field
+- tapOn:
+      below: City*
+
+# Proceed to payment
+- tapOn:
+      text: To Payment
+
+# Payment - Input full name
+- tapOn:
+      below: Full Name*
+- inputText:
+      text: ${TEST_FULLNAME_PAYMENT}
+
+# Payment - Input card number
+- tapOn:
+      below: Card Number*
+- inputText:
+      text: ${TEST_CARD_NUMBER}
+
+# Instead hideKeyboard tap previous field
+- tapOn:
+      below: Full Name*
+
+# Payment - Input expiration date
+- tapOn:
+      below: Expiration Date*
+- inputText:
+      text: ${TEST_EXPIRATION}
+
+# Instead hideKeyboard tap previous field
+- tapOn:
+      below: Card Number*
+
+# Payment - Input security code
+- tapOn:
+      below: Security Code*
+      rightOf: Expiration Date*
+- inputText:
+      text: ${TEST_SECURITY_CODE}
+
+# Instead hideKeyboard tap previous field
+- tapOn:
+      below: Card Number*
+
+# Toggle billing address checkbox
+- tapOn:
+      text: ".*billing address is the same.*"
+
+# Toggle billing address checkbox again
+- tapOn:
+      text: ".*billing address is the same.*"
+
+# Review Order - Tap Review Order button
+- tapOn: Review Order
+
+# Verify and tap Review Order button again
+- assertVisible:
+      text: Place Order
+- tapOn: Place Order
+
+# Final step - Return to shopping
+- assertVisible:
+      id: ContinueShopping
+- tapOn:
+      id: ContinueShopping

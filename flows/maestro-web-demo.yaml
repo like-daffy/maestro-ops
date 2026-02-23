@@ -1,0 +1,72 @@
+url: https://www.saucedemo.com
+---
+- launchApp
+
+# locked_out_user login
+- tapOn:
+    id: user-name
+- eraseText: 25
+- inputText: ${TEST_WEB_LOCKED_ID}
+- tapOn:
+    id: password
+- eraseText: 25
+- inputText: ${TEST_WEB_LOCKED_PWD}
+- tapOn:
+    id: login-button
+- tapOn:
+    rightOf: ".*locked out.*"
+
+# standard_user_login
+- tapOn:
+    id: user-name
+- eraseText: 25
+- inputText: ${TEST_WEB_ID}
+- tapOn:
+    id: password
+- eraseText: 25
+- inputText: ${TEST_WEB_PWD}
+- tapOn:
+    id: login-button
+
+# Scrolling
+- swipe:
+    direction: UP
+    duration: 500
+- swipe:
+    direction: DOWN
+    duration: 500
+
+# Add to Card item and Remove
+- tapOn: Sauce Labs Backpack
+- tapOn:
+    id: add-to-cart
+- tapOn:
+    id: shopping_cart_container
+- tapOn:
+    id: remove-sauce-labs-backpack
+- tapOn:
+    id: continue-shopping
+
+# Add to checkout
+- tapOn: Sauce Labs Backpack
+- tapOn:
+    id: add-to-cart
+- tapOn:
+    id: shopping_cart_container
+- tapOn:
+    id: checkout
+- tapOn:
+    id: first-name
+- inputText: ${TEST_FIRSTNAME_SHIPPING}
+- tapOn:
+    id: last-name
+- inputText: ${TEST_LASTNAME_SHIPPING}
+- tapOn:
+    id: postal-code
+- inputText: ${TEST_ZIP}
+- tapOn:
+    id: continue
+- tapOn:
+    id: finish
+- tapOn:
+    id: back-to-products

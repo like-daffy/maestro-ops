@@ -1,0 +1,214 @@
+appId: com.saucelabs.mydemoapp.android
+---
+# Launch the application
+- launchApp
+
+# Swipe down to the bottom of the Products screen
+- swipe:
+        start: 50%, 80%
+        end: 50%, 20%
+
+# Swipe up to the top of the Products screen
+- swipe:
+        start: 50%, 20%
+        end: 50%, 80%
+
+# Verify and tap on the first Product Image
+- assertVisible:
+        text: "Product Image"
+        index: 0
+- tapOn:
+        text: "Product Image"
+        index: 0
+
+# Verify and tap the star rating element
+- assertVisible:
+        id: start5IV
+- tapOn:
+        id: start5IV
+
+# Verify and tap Continue
+- assertVisible:
+        text: "Continue"
+        enabled: true
+- tapOn: "Continue"
+
+# Verify and tap Add to cart
+- assertVisible:
+        text: "Add to cart"
+- tapOn: "Add to cart"
+
+# Verify and tap the cart icon
+- assertVisible:
+        id: cartIV
+- tapOn:
+        id: cartIV
+
+# Verify and tap Remove Item in the cart view
+- assertVisible:
+        text: "Remove Item"
+- tapOn: "Remove Item"
+
+# Verify and tap Go Shopping
+- assertVisible:
+        text: "Go Shopping"
+- tapOn: "Go Shopping"
+
+# Re-verify and tap the first Product Image
+- assertVisible:
+        text: "Product Image"
+        index: 0
+- tapOn:
+        text: "Product Image"
+        index: 0
+
+# Re-verify and tap Add to cart
+- assertVisible:
+        text: "Add to cart"
+- tapOn: "Add to cart"
+
+# Final verify and tap the cart icon
+- assertVisible:
+        id: cartIV
+- tapOn:
+        id: cartIV
+- assertVisible:
+        text: "Proceed To Checkout"
+- tapOn: "Proceed To Checkout"
+
+# Login - Input username
+- tapOn:
+        id: nameET
+- inputText:
+        text: ${TEST_ID}
+
+# Login - Input password
+- tapOn:
+        id: passwordET
+- inputText:
+        text: ${TEST_PWD}
+
+# Dismiss keyboard
+- hideKeyboard
+
+# Tap login button
+- tapOn:
+        id: loginBtn
+
+# Dismiss autofill prompt if exists
+- runFlow:
+        when:
+              visible:
+                    id: autofill_save_no
+        commands:
+              - tapOn:
+                      id: autofill_save_no
+
+# Shipping Address - Input full name
+- tapOn:
+        id: fullNameET
+- inputText:
+        text: ${TEST_FULLNAME_SHIPPING}
+
+# Shipping Address - Input address line 1
+- tapOn:
+        id: address1ET
+- inputText:
+        text: ${TEST_ADDRESS1}
+
+# Shipping Address - Input address line 2
+- tapOn:
+        id: address2ET
+- inputText:
+        text: ${TEST_ADDRESS2}
+
+# Dismiss keyboard if exists
+- hideKeyboard
+
+# Shipping Address - Input city
+- tapOn:
+        id: cityET
+- inputText:
+        text: ${TEST_CITY}
+
+# Shipping Address - Input state/region
+- tapOn:
+        id: stateET
+- inputText:
+        text: ${TEST_STATE}
+
+# Dismiss keyboard if exists
+- hideKeyboard
+
+# Shipping Address - Input zip code
+- tapOn:
+        id: zipET
+- inputText:
+        text: ${TEST_ZIP}
+
+# Shipping Address - Input country
+- tapOn:
+        id: countryET
+- inputText:
+        text: ${TEST_COUNTRY}
+
+# Dismiss keyboard if exists
+- hideKeyboard
+
+# Proceed to payment
+- tapOn:
+        id: paymentBtn
+
+# Payment - Input full name
+- tapOn:
+        id: nameET
+- inputText:
+        text: ${TEST_FULLNAME_PAYMENT}
+
+# Payment - Input card number
+- tapOn:
+        id: cardNumberET
+- inputText:
+        text: ${TEST_CARD_NUMBER}
+
+# Dismiss keyboard if exists
+- hideKeyboard
+
+# Payment - Input expiration date
+- tapOn:
+        id: expirationDateET
+- inputText:
+        text: ${TEST_EXPIRATION}
+
+# Payment - Input security code
+- tapOn:
+        id: securityCodeET
+- inputText:
+        text: ${TEST_SECURITY_CODE}
+
+# Dismiss keyboard if exists
+- hideKeyboard
+
+# Toggle billing address checkbox
+- tapOn:
+        id: billingAddressCB
+
+# Toggle billing address checkbox again
+- tapOn:
+        id: billingAddressCB
+
+# Review Order - Tap Review Order button
+- tapOn:
+        id: paymentBtn
+
+# Verify and tap Review Order button again
+- assertVisible:
+        id: paymentBtn
+- tapOn:
+        id: paymentBtn
+
+# Final step - Return to shopping
+- assertVisible:
+        id: shoopingBt
+- tapOn:
+        id: shoopingBt
