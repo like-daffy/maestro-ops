@@ -1,0 +1,61 @@
+name: "\U0001F41B Bug Report (\uBC84\uADF8 \uC81C\uBCF4)"
+description: "Report Bug or Suggest the feature. \uBC84\uADF8\uB97C \uC81C\uBCF4\uD558\uAC70\uB098 \uAC74\uC758\uC0AC\uD56D\uC744 \uB0A8\uACE8\uC8FC\uC138\uC694."
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill informations as possible for reproduction. 최대한 기입 가능한 정보는 전부 기입해주세요.
+
+  - type: input
+    id: version
+    attributes:
+      label: "Maestro Ops Version"
+      placeholder: "ex) 2.0-b1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: "OS"
+      options:
+        - Windows OS
+        - MacOS
+    validations:
+      required: true
+
+  - type: textarea
+    id: precondition
+    attributes:
+      label: "Precondition (사전 조건)"
+      description: "Describe preconditions. 사전 조건을 기입하세요."
+      placeholder: |
+        1. '...' 메뉴로 진입
+        2. '...' 버튼 클릭
+        3. 에러 발생
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Reproduction Steps (재현 경로)"
+      description: "How did you reproduce the bug? 어떤 단계를 거쳐 버그가 발생했나요?"
+      placeholder: |
+        1. '...' 메뉴로 진입
+        2. '...' 버튼 클릭
+        3. 에러 발생
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Severity (심각도)"
+      options:
+        - "Critical (앱 중단)"
+        - "Major (주요 기능 작동 불가)"
+        - "Minor (단순 UI/UX 이슈, 오탈자)"
+    validations:
+      required: true
