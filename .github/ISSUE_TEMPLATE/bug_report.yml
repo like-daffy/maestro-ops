@@ -6,6 +6,16 @@ body:
     attributes:
       value: |
         Fill informations as possible for reproduction. 최대한 기입 가능한 정보는 전부 기입해주세요.
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Severity (심각도)"
+      options:
+        - "Critical (앱 중단)"
+        - "Major (주요 기능 작동 불가)"
+        - "Minor (단순 UI/UX 이슈, 오탈자)"
+    validations:
+      required: true
 
   - type: input
     id: version
@@ -46,16 +56,5 @@ body:
         1. '...' 메뉴로 진입
         2. '...' 버튼 클릭
         3. 에러 발생
-    validations:
-      required: true
-
-  - type: dropdown
-    id: severity
-    attributes:
-      label: "Severity (심각도)"
-      options:
-        - "Critical (앱 중단)"
-        - "Major (주요 기능 작동 불가)"
-        - "Minor (단순 UI/UX 이슈, 오탈자)"
     validations:
       required: true
