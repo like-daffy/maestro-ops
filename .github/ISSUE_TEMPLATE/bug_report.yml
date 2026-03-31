@@ -35,17 +35,14 @@ body:
     validations:
       required: true
 
-  - type: textarea
+  - type: input
     id: precondition
     attributes:
       label: "Precondition (사전 조건)"
       description: "Describe preconditions. 사전 조건을 기입하세요."
-      placeholder: |
-        1. '...' 메뉴로 진입
-        2. '...' 버튼 클릭
-        3. 에러 발생
+      placeholder: "1. Orchestrator 로 실행된 상태"
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: reproduction
@@ -53,8 +50,26 @@ body:
       label: "Reproduction Steps (재현 경로)"
       description: "How did you reproduce the bug? 어떤 단계를 거쳐 버그가 발생했나요?"
       placeholder: |
-        1. '...' 메뉴로 진입
-        2. '...' 버튼 클릭
-        3. 에러 발생
+        1. Listener PC 실행
+        2. Refresh 버튼 클릭
+        3. Connected PC Summary 화면 확인
+    validations:
+      required: true
+
+  - type: input
+    id: expectedresult
+    attributes:
+      label: "Expected Result"
+      description: "기대했던 결과를 기입하세요."
+      placeholder: "Listener PC 목록이 표시되어야 함"
+    validations:
+      required: true
+
+  - type: input
+    id: actualresult
+    attributes:
+      label: "Actual Result"
+      description: "실제 발생한 결과를 기입하세요."
+      placeholder: "아무런 변화 없이 Connected PCs: 0 상태를 유지"
     validations:
       required: true
