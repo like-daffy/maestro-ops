@@ -6,6 +6,10 @@
 
 또한, 이슈를 빠르게 파악할 수 있도록 결과 리포트를 기존 Maestro의 Look & Feel에 가깝게 작업하였습니다. Google Sheets를 활용 중이라면 결과를 손쉽게 복사해올 수 있습니다.
 
+#### 2.0 Preview 버전은 여기서 [다운](https://github.com/like-daffy/maestro-ops/releases/tag/v2.0-beta1) 받으실 수 있습니다.
+
+#### You can download v2.0 preview version [here](https://github.com/like-daffy/maestro-ops/releases/tag/v2.0-beta1).
+
 ---
 
 ### AS-IS vs TO-BE
@@ -160,8 +164,6 @@ docker restart maestro-ops-redis
 ❗ [Maestro Ops 제안/건의](https://github.com/like-daffy/maestro-ops/issues/new?template=improvement_request.yml)
 
 ### 🚀 Maestro Multi-Verification (New in v2.0)
-
-You can download v2.0 preview version [here](https://github.com/like-daffy/maestro-ops/releases/tag/v2.0-beta1).
 
 Looking to run tests across multiple environments simultaneously? With the **Multi-Test** feature, you can connect multiple PCs to perform parallel testing.
 
