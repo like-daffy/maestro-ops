@@ -118,6 +118,9 @@ CLI로도 충분히 실행할 수 있지만, 동일한 시나리오에서 디바
 
 ### 🏁 테스트 시작하기
 
+<img width="600" height="338" alt="maestro-ops-v2-preview" src="https://github.com/user-attachments/assets/25188e36-deb2-44cd-8de1-8fd075d2095c" />
+
+
 1.  **Main PC**에서 연결된 각 **Listener PC**의 **[Edit]** 버튼을 클릭합니다.
 2.  해당 환경에 필요한 환경변수 정보를 입력한 후 **[Apply]**를 클릭합니다.
 3.  세팅이 완료되면 **[START]** 버튼이 활성화됩니다.
