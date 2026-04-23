@@ -8,7 +8,9 @@
 
 #### 2.0 Preview 버전은 여기서 [다운](https://github.com/like-daffy/maestro-ops/releases/tag/v2.0-beta1) 받으실 수 있습니다.
 
-#### You can download v2.0 preview version [here](https://github.com/like-daffy/maestro-ops/releases/tag/v2.0-beta1).
+You can download v2.0 preview version [here](https://github.com/like-daffy/maestro-ops/releases/tag/v2.0-beta1).
+
+**[Click here for the English guide](#-maestro-multi-verification-new-in-v20)**
 
 ---
 
@@ -48,9 +50,6 @@ CLI로도 충분히 실행할 수 있지만, 동일한 시나리오에서 디바
 ## 🚀 Maestro 멀티 검증 (v2.0 신기능)
 
 <img width="944" height="526" alt="main_pc_original" src="https://github.com/user-attachments/assets/e804c24e-3eaf-4a28-af5c-94667bb82539" />
-2.0 Preview 버전은 여기서 [다운](https://github.com/like-daffy/maestro-ops/releases/tag/v2.0-beta1) 받으실 수 있습니다.
-
-**[Click here for the English guide](#-maestro-multi-verification-new-in-v20)**
 
 여러 환경에서 동시에 테스트를 수행하고 싶으신가요? **Multi Test** 기능을 이용하면 여러 대의 PC를 연결하여 병렬 테스트를 진행할 수 있습니다. 
 
