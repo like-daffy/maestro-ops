@@ -51,11 +51,11 @@ CLI로도 충분히 실행할 수 있지만, 동일한 시나리오에서 디바
 
 <img width="600" alt="main_pc_original" src="https://github.com/user-attachments/assets/e804c24e-3eaf-4a28-af5c-94667bb82539" />
 
-여러 환경에서 동시에 테스트를 수행하고 싶으신가요? **Multi Test** 기능을 이용하면 여러 대의 PC를 연결하여 병렬 테스트를 진행할 수 있습니다. 
+여러 환경에서 동시에 테스트를 수행하고 싶으신가요? **Multi Test** 기능을 이용하면 여러 대의 PC를 연결하여 병렬 테스트를 진행할 수 있습니다.
 
-* **Main PC (Orchestrator):** 테스트를 설계하고 전체 리스너들을 제어하는 '컨트롤 타워' 역할을 합니다.
-* **Listener PC:** 실제 테스트 스크립트가 실행되는 '실행기' 역할을 합니다.
-  * *Tip: Main PC에서도 리스너 창을 띄우면 스스로 리스너 역할을 수행할 수 있습니다.*
+- **Main PC (Orchestrator):** 테스트를 설계하고 전체 리스너들을 제어하는 '컨트롤 타워' 역할을 합니다.
+- **Listener PC:** 실제 테스트 스크립트가 실행되는 '실행기' 역할을 합니다.
+  - _Tip: Main PC에서도 리스너 창을 띄우면 스스로 리스너 역할을 수행할 수 있습니다._
 
 ### 📋 사전 준비 사항
 
@@ -63,16 +63,16 @@ CLI로도 충분히 실행할 수 있지만, 동일한 시나리오에서 디바
 
 #### **1. Main PC 세팅**
 
-* **Docker Desktop:** [다운로드 바로가기](https://www.docker.com/products/docker-desktop/) (실행 필수)
-* **Maestro CLI:** [설치 가이드](https://docs.maestro.dev/maestro-cli/how-to-install-maestro-cli)
-* **Android SDK (ADB, 선택사항):** [플랫폼 도구 다운로드](https://developer.android.com/tools/releases/platform-tools#downloads)
-* **Xcode (iOS 테스트용, 선택사항):** App Store에서 설치
+- **Docker Desktop:** [다운로드 바로가기](https://www.docker.com/products/docker-desktop/) (실행 필수)
+- **Maestro CLI:** [설치 가이드](https://docs.maestro.dev/maestro-cli/how-to-install-maestro-cli)
+- **Android SDK (ADB, 선택사항):** [플랫폼 도구 다운로드](https://developer.android.com/tools/releases/platform-tools#downloads)
+- **Xcode (iOS 테스트용, 선택사항):** App Store에서 설치
 
 #### **2. Listener PC 세팅**
 
-* **Maestro CLI:** [설치 가이드](https://docs.maestro.dev/maestro-cli/how-to-install-maestro-cli)
-* **Android SDK (ADB, 선택사항):** [플랫폼 도구 다운로드](https://developer.android.com/tools/releases/platform-tools#downloads) Emulator로 테스트를 원할 시에는 [Android Studio](https://developer.android.com/studio) 를 설치하는 걸 권장합니다. (Studio 설치 시 SDK 도 같이 설치하실 수 있습니다)
-* **Xcode (iOS 테스트용, 선택사항):** App Store에서 설치
+- **Maestro CLI:** [설치 가이드](https://docs.maestro.dev/maestro-cli/how-to-install-maestro-cli)
+- **Android SDK (ADB, 선택사항):** [플랫폼 도구 다운로드](https://developer.android.com/tools/releases/platform-tools#downloads) Emulator로 테스트를 원할 시에는 [Android Studio](https://developer.android.com/studio) 를 설치하는 걸 권장합니다. (Studio 설치 시 SDK 도 같이 설치하실 수 있습니다)
+- **Xcode (iOS 테스트용, 선택사항):** App Store에서 설치
 
 ---
 
@@ -85,13 +85,11 @@ CLI로도 충분히 실행할 수 있지만, 동일한 시나리오에서 디바
 2. 다른 PC가 접속할 수 있도록 **방화벽 규칙**을 추가합니다. (Terminal, Powershell 에서 실행)
 
    ##### MacOS
-
-   1. ```sudo ./setup_mac.sh``` 실행
+   1. `sudo ./setup_mac.sh` 실행
    2. `Open Maestro Ops.command` 와 `Maestro Ops.app` 을 동일한 폴더에 복사
    3. (최초 1회에 한해) `Open Maestro Ops.command` 을 실행, 이후는 `Maestro Ops.app` 로 실행 가능
 
    ##### Windows OS
-
    1. PowerShell 에서 `./setup_win.ps1` 을 실행
    2. 원하는 폴더에 실행 파일을 옮겨둔뒤 사용
 
@@ -106,9 +104,9 @@ CLI로도 충분히 실행할 수 있지만, 동일한 시나리오에서 디바
 
 각 PC에서 **Refresh**를 클릭했을 때 아래 상태여야 정상입니다.
 
-* **Connection Status:** `Connected` 표시 확인
-* **Connected PC Summary:** 연결된 PC 리스트에 해당 PC가 보여야 함
-* **Listener Log:** 하단 Live Worker Log에 `Celery worker started (queue: listener.고유ID)` 메시지 확인
+- **Connection Status:** `Connected` 표시 확인
+- **Connected PC Summary:** 연결된 PC 리스트에 해당 PC가 보여야 함
+- **Listener Log:** 하단 Live Worker Log에 `Celery worker started (queue: listener.고유ID)` 메시지 확인
 
 ---
 
@@ -123,7 +121,6 @@ CLI로도 충분히 실행할 수 있지만, 동일한 시나리오에서 디바
 ### 🏁 테스트 시작하기
 
 <img width="600" height="338" alt="maestro-ops-v2-preview" src="https://github.com/user-attachments/assets/25188e36-deb2-44cd-8de1-8fd075d2095c" />
-
 
 1.  **Main PC**에서 연결된 각 **Listener PC**의 **[Edit]** 버튼을 클릭합니다.
 2.  해당 환경에 필요한 환경변수 정보를 입력한 후 **[Apply]** 를 클릭합니다.
@@ -152,6 +149,28 @@ docker restart maestro-ops-redis
 
 그런뒤 Main PC 에서 Get IP 를 클릭하면 바뀐 IP 로 보일겁니다. 그 IP를 동일하게 Listener PC 에 입력하시면 사용이 가능합니다.
 
+#### Final Cut Pro 를 쓰는데 Compressor.app 이 작동하지 않아요
+
+Port 를 열어줘야 되는 설정으로 인해, 관련 앱에 영향이 있을 수 있습니다. 이런 경우 엥커(Anchor) 설정을 업데이트 해주셔야 됩니다.
+
+```bash
+sudo nano /etc/pf.anchors/com.maestro.ops
+```
+
+이제 설정 파일에서 Maestro Ops 규칙 아래에 아래 내용을 추가합니다.
+
+```text
+# Compressor Cluster Communication
+pass in proto tcp from any to any port 49152:65535
+pass in proto udp from any to any port 49152:65535
+```
+
+그리고 아래 명령어를 입력하여 pf 엥커를 리로드 합니다. 재부팅 할 필요없이 리로드 하면 적용됩니다.
+
+```bash
+sudo pfctl -f /etc/pf.conf
+```
+
 ---
 
 ### 🐛 이슈 제보 및 문의
@@ -166,9 +185,9 @@ docker restart maestro-ops-redis
 
 Looking to run tests across multiple environments simultaneously? With the **Multi-Test** feature, you can connect multiple PCs to perform parallel testing.
 
-* **Main PC (Orchestrator):** Acts as the 'Control Tower' to design tests and manage all Listeners.
-* **Listener PC:** Acts as the 'Runner' where the actual test scripts are executed.
-  * *Tip: By opening a Listener window on the Main PC, it can also function as a Runner itself.*
+- **Main PC (Orchestrator):** Acts as the 'Control Tower' to design tests and manage all Listeners.
+- **Listener PC:** Acts as the 'Runner' where the actual test scripts are executed.
+  - _Tip: By opening a Listener window on the Main PC, it can also function as a Runner itself._
 
 ---
 
@@ -178,16 +197,16 @@ Before starting multi-verification, please install the following tools on each P
 
 #### **1. Main PC Setup**
 
-* **Docker Desktop:** [Download Here](https://www.docker.com/products/docker-desktop/) (Must be running)
-* **Maestro CLI:** [Installation Guide](https://docs.maestro.dev/maestro-cli/how-to-install-maestro-cli)
-* **Android SDK (ADB, Optional):** [Download Platform Tools](https://developer.android.com/tools/releases/platform-tools#downloads)
-* **Xcode (Optional, for iOS testing):** Install via the App Store
+- **Docker Desktop:** [Download Here](https://www.docker.com/products/docker-desktop/) (Must be running)
+- **Maestro CLI:** [Installation Guide](https://docs.maestro.dev/maestro-cli/how-to-install-maestro-cli)
+- **Android SDK (ADB, Optional):** [Download Platform Tools](https://developer.android.com/tools/releases/platform-tools#downloads)
+- **Xcode (Optional, for iOS testing):** Install via the App Store
 
 #### **2. Listener PC Setup**
 
-* **Maestro CLI:** [Installation Guide](https://docs.maestro.dev/maestro-cli/how-to-install-maestro-cli)
-* **Android SDK (ADB, Optional):** [Download Platform Tools](https://developer.android.com/tools/releases/platform-tools#downloads). If you intend to test via emulator, installing [Android Studio](https://developer.android.com/studio) is recommended (the SDK is included with the Studio installation).
-* **Xcode (Optional, for iOS testing):** Install via the App Store
+- **Maestro CLI:** [Installation Guide](https://docs.maestro.dev/maestro-cli/how-to-install-maestro-cli)
+- **Android SDK (ADB, Optional):** [Download Platform Tools](https://developer.android.com/tools/releases/platform-tools#downloads). If you intend to test via emulator, installing [Android Studio](https://developer.android.com/studio) is recommended (the SDK is included with the Studio installation).
+- **Xcode (Optional, for iOS testing):** Install via the App Store
 
 ---
 
@@ -200,13 +219,11 @@ Before starting multi-verification, please install the following tools on each P
 2. Add **Firewall Rules** to allow access from other PCs (Run via Terminal or PowerShell).
 
    ##### MacOS
-
-   1. Run ```sudo ./setup_mac.sh```.
+   1. Run `sudo ./setup_mac.sh`.
    2. Copy `Open Maestro Ops.command` and `Maestro Ops.app` into the same folder.
    3. Execute `Open Maestro Ops.command` (first time only); subsequently, you can launch via `Maestro Ops.app`.
 
    ##### Windows OS
-
    1. Run `./setup_win.ps1` in PowerShell 7.
    2. Move the executable file to your desired folder and launch.
 
@@ -221,9 +238,9 @@ Before starting multi-verification, please install the following tools on each P
 
 When you click **Refresh** on each PC, the status should be as follows:
 
-* **Connection Status:** Displays `Connected`.
-* **Connected PC Summary:** The PC should appear in the list of connected devices.
-* **Listener Log:** The message `Celery worker started (queue: listener.Unique_ID)` should appear in the Live Worker Log at the bottom.
+- **Connection Status:** Displays `Connected`.
+- **Connected PC Summary:** The PC should appear in the list of connected devices.
+- **Listener Log:** The message `Celery worker started (queue: listener.Unique_ID)` should appear in the Live Worker Log at the bottom.
 
 ---
 
@@ -262,15 +279,39 @@ Restart Docker using the following command:
 docker restart maestro-ops-redis
 ```
 
+#### Compressor.app is not working while using Final Cut Pro
+
+Due to port configuration requirements, related applications may be affected. In this case, you need to update the PF Anchor settings.
+
+```bash
+sudo nano /etc/pf.anchors/com.maestro.ops
+```
+
+Add the following lines below the Maestro Ops rules in the configuration file:
+
+```text
+# Compressor Cluster Communication
+pass in proto tcp from any to any port 49152:65535
+pass in proto udp from any to any port 49152:65535
+```
+
+Reload the PF anchor with the following command:
+
+```bash
+sudo pfctl -f /etc/pf.conf
+```
+
+Restarting the system is not required; the changes will take effect immediately upon reload.
+
 ## 🛠️ Tech Stack
 
-| Category                 | Tools & Technologies                                         |
-| :----------------------- | :----------------------------------------------------------- |
-| **Language**             | Python 3.12, Shell Scripting (Zsh, PowerShell)               |
-| **GUI Framework**        | PySide6                                                      |
-| **Build & Distribution** | Nuitka                                                       |
-| **Core Integrations**    | Maestro CLI, ADB, Xcode CLI (simctl, devicectl), libimobiledevice |
-| **Data & Reporting**     | PyYAML, HTML/CSS Report Generation                           |
+| Category                 | Tools & Technologies                                                   |
+| :----------------------- | :--------------------------------------------------------------------- |
+| **Language**             | Python 3.12, Shell Scripting (Zsh, PowerShell)                         |
+| **GUI Framework**        | PySide6                                                                |
+| **Build & Distribution** | Nuitka                                                                 |
+| **Core Integrations**    | Maestro CLI, ADB, Xcode CLI (simctl, devicectl), libimobiledevice      |
+| **Data & Reporting**     | PyYAML, HTML/CSS Report Generation                                     |
 | **CI/CD & DevOps**       | **GitHub Actions (Self-hosted Runner)**, macOS/Windows Build Pipelines |
 
 ---
