@@ -140,7 +140,7 @@ Android Studio 실행 후, 좌측 상단의 **3선 메뉴(전체 메뉴) > Tools
 
 #### **Simulator 실행**
 
-Mac에서 `Cmd + Space`를 눌러 스포트라이트를 켠 뒤, **"Simulator.app"** 을 입력하여 실행하세요.
+Mac에서 `Cmd + Space`를 눌러 스포트라이트를 켠 뒤, **"Simulator.app"**을 입력하여 실행하세요.
 
 #### 장소를 이동했는데 작동이 안될 경우
 
@@ -151,6 +151,47 @@ docker restart maestro-ops-redis
 ```
 
 그런뒤 Main PC 에서 Get IP 를 클릭하면 바뀐 IP 로 보일겁니다. 그 IP를 동일하게 Listener PC 에 입력하시면 사용이 가능합니다.
+
+#### Cursor AI 외 별도로 사용하던 AI Agent 가 작동이 되지 않아요
+
+방화벽을 다음 명령어로 해제합니다.
+
+```bash
+sudo pfctl -d
+```
+
+그런 뒤 AI Agent 에 임의 메시지를 보낸 뒤 작동이 된다면, 다음 명령어로 방화벽을 활성화 시킨뒤 쓰시면 됩니다.
+
+```bash
+sudo pfctl -e
+```
+
+만일 방화벽 활성화 이후 다시 안된다면, System Settings > Firewall > Options 에 진입하셔서 해당 Agent 앱을 좌측 하단 + 버튼으로 추가하신 뒤 재시도 해주시면 됩니다.
+
+#### Final Cut Pro 를 쓰는데 Compressor.app 이 작동하지 않아요
+
+Port 를 열어줘야 되는 설정으로 인해, 관련 앱에 영향이 있을 수 있습니다. 이런 경우 엥커(Anchor) 설정을 업데이트 해주셔야 됩니다.
+
+```bash
+sudo nano /etc/pf.anchors/com.maestro.ops
+
+```
+
+이제 설정 파일에서 Maestro Ops 규칙 아래에 아래 내용을 추가합니다.
+
+```text
+# Compressor Cluster Communication
+pass in proto tcp from any to any port 49152:65535
+pass in proto udp from any to any port 49152:65535
+
+```
+
+그리고 아래 명령어를 입력하여 pf 엥커를 리로드 합니다. 재부팅 할 필요없이 리로드 하면 적용됩니다.
+
+```bash
+sudo pfctl -f /etc/pf.conf
+
+```
 
 ---
 
@@ -245,6 +286,67 @@ When you click **Refresh** on each PC, the status should be as follows:
 ---
 
 ### ❓ FAQ
+
+#### **Android Emulator Location**
+
+After launching Android Studio, go to the **Hamburger Menu (Top Left) > Tools > Device Manager**. Click the **Play (▶️) button** on your virtual device to start the emulator.
+
+#### **Launching the Simulator**
+
+Press `Cmd + Space` on your Mac to open Spotlight, type **"Simulator.app"**, and press Enter.
+
+#### **What if it stops working after changing locations?**
+
+Restart Docker using the following command:
+
+```bash
+docker restart maestro-ops-redis
+```
+
+#### AI Agents (other than Cursor AI) are not working
+
+The macOS PF firewall configuration may be blocking the connection of your AI Agent. Use the following steps to troubleshoot:
+
+**1. Disable the firewall to test connectivity:**
+
+```bash
+sudo pfctl -d
+```
+
+**2. Verify and Re-enable:** After disabling the firewall, send a test message to your AI Agent. If it works correctly, you can re-enable the firewall with the following command:
+
+```bash
+sudo pfctl -e
+```
+
+**3. If the issue persists after re-enabling:** If the Agent stops working again once the firewall is active, you need to add the application to the system's allow list:
+
+1. Navigate to **System Settings > Network > Firewall > Options...**
+2. Click the **"+"** button at the bottom left.
+3. Select and add the specific **AI Agent application**.
+4. Retry the connection.
+
+#### Compressor.app is not working while using Final Cut Pro
+
+Due to port configuration requirements, related applications may be affected. In this case, you need to update the PF Anchor settings.
+
+```bash
+sudo nano /etc/pf.anchors/com.maestro.ops
+```
+
+Now, add the following lines under the Maestro Ops rules in the configuration file:
+
+```plain text
+# Compressor Cluster Communication
+pass in proto tcp from any to any port 49152:65535
+pass in proto udp from any to any port 49152:65535
+```
+
+Then, run the following command to reload the PF anchor. The changes will take effect immediately without needing a reboot.
+
+```bash
+sudo pfctl -f /etc/pf.conf
+```
 
 #### **Android Emulator Location**
 
